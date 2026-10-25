@@ -1,0 +1,44 @@
+[project]
+site_name = "WHUT 数学er保研自救指南"
+site_url = "https://kiraakashi6666.github.io/whut-math-postgraduate-guide/"
+site_description = "面向武汉理工大学数学与统计学院学生的保研经验分享"
+site_dir = "site"
+exclude_docs = """
+superpowers/
+"""
+copyright = "© 2026 共同作者。保留所有权利。"
+nav = [
+  { "首页" = "index.md" },
+  { "保研四要素" = "fundamentals.md" },
+  { "期末考试" = [
+    { "选课" = "exams/course-selection.md" },
+    { "听课与笔记" = "exams/classes-and-notes.md" },
+    { "期末复习" = "exams/final-review.md" },
+  ] },
+  { "课外学习" = [
+    { "英语" = "learning/english.md" },
+    { "如何找课程" = "learning/finding-courses.md" },
+  ] },
+  { "保研笔试与面试" = [
+    { "信息来源" = "admission/information.md" },
+    { "笔试" = "admission/written-test.md" },
+    { "面试" = "admission/interview.md" },
+    { "学校案例" = "admission/cases.md" },
+  ] },
+  { "课程经验" = [
+    { "数学分析" = "courses/calculus.md" },
+    { "高等代数" = "courses/linear-algebra.md" },
+    { "其他核心课程" = "courses/other-courses.md" },
+  ] },
+]
+
+[project.theme]
+variant = "classic"
+language = "zh"
+features = [
+  "navigation.sections",
+  "navigation.tracking",
+  "navigation.top",
+  "search.highlight",
+  "toc.follow",
+]
