@@ -8,7 +8,6 @@
 - [期末考试：选课](exams/course-selection.md)
 - [期末考试：复习方法](exams/final-review.md)
 - [保研笔试与面试](admission/information.md)
-- [核心课程经验](courses/calculus.md)
 
 !!! note "阅读说明"
     本指南来自个人与同学经验，具体课程安排和保研政策请以学院最新通知为准。

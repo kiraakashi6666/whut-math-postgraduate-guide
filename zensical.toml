@@ -25,11 +25,6 @@ nav = [
     { "面试" = "admission/interview.md" },
     { "学校案例" = "admission/cases.md" },
   ] },
-  { "课程经验" = [
-    { "数学分析" = "courses/calculus.md" },
-    { "高等代数" = "courses/linear-algebra.md" },
-    { "其他核心课程" = "courses/other-courses.md" },
-  ] },
 ]
 
 [project.theme]

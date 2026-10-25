@@ -33,13 +33,13 @@ zensical serve
 先在 `docs/` 的相应目录中新建 Markdown，例如：
 
 ```text
-docs/courses/new-course.md
+docs/learning/new-resource.md
 ```
 
 文件第一行写文章标题：
 
 ```markdown
-# 新课程经验
+# 新学习资源
 ```
 
 随后在 `zensical.toml` 的 `nav` 列表中加入页面路径，页面才会出现在左侧导航中。
@@ -87,8 +87,6 @@ zensical build
 - `docs/exams/`：选课、听课和期末复习。
 - `docs/learning/`：英语与课程资源。
 - `docs/admission/`：保研笔试、面试与案例。
-- `docs/courses/`：核心课程经验。
-- `source/original-guide.md`：拆分前的原始文档备份。
 - `zensical.toml`：网站名称、语言、外观和左侧导航。
 
 ## 自动检查
