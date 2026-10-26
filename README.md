@@ -1,4 +1,4 @@
-# WHUT 数学er保研自救指南
+# WHUT 数学er 学习指南
 
 这是一个使用 Zensical 生成的中文文档网站。正文全部保存在 `docs/` 中，可以继续使用 Markdown 修改。
 
@@ -33,13 +33,13 @@ zensical serve
 先在 `docs/` 的相应目录中新建 Markdown，例如：
 
 ```text
-docs/learning/new-resource.md
+docs/gpa/new-topic.md
 ```
 
 文件第一行写文章标题：
 
 ```markdown
-# 新学习资源
+# 新主题
 ```
 
 随后在 `zensical.toml` 的 `nav` 列表中加入页面路径，页面才会出现在左侧导航中。
@@ -67,7 +67,7 @@ docs/learning/new-resource.md
 
 不同目录中的文章可能需要调整前面的 `../` 层级。
 
-图片文件同样使用简短、可读的英文名，例如 `campus-course-review.png`。
+图片文件同样使用简短、可读的英文名，例如 `campus-map.png`。
 
 ## 构建网站
 
@@ -83,10 +83,10 @@ zensical build
 ## 内容位置
 
 - `docs/index.md`：首页。
-- `docs/fundamentals.md`：保研四要素。
-- `docs/exams/`：选课、听课和期末复习。
-- `docs/learning/`：英语与课程资源。
-- `docs/admission/`：保研笔试、面试与案例。
+- `docs/introduction.md`：引言。
+- `docs/gpa/`：日常学习、课外学习与期末备考。
+- `docs/postgraduate/`：三年规划、套磁、笔面经验与其他事项。
+- `docs/campus-life/`：地点、社交、师生关系、WHUT 网站与入党。
 - `zensical.toml`：网站名称、语言、外观和左侧导航。
 
 ## 自动检查

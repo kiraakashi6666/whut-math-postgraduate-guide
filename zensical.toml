@@ -1,7 +1,7 @@
 [project]
-site_name = "WHUT 数学er保研自救指南"
+site_name = "WHUT 数学er 学习指南"
 site_url = "https://kiraakashi6666.github.io/whut-math-postgraduate-guide/"
-site_description = "面向武汉理工大学数学与统计学院学生的保研经验分享"
+site_description = "面向武汉理工大学数学与统计学院学生的学习、保研与校园生活指南"
 site_dir = "site"
 exclude_docs = """
 superpowers/
@@ -9,21 +9,38 @@ superpowers/
 copyright = "© 2026 共同作者。保留所有权利。"
 nav = [
   { "首页" = "index.md" },
-  { "保研四要素" = "fundamentals.md" },
-  { "期末考试" = [
-    { "选课" = "exams/course-selection.md" },
-    { "听课与笔记" = "exams/classes-and-notes.md" },
-    { "期末复习" = "exams/final-review.md" },
+  { "引言" = "introduction.md" },
+  { "绩点" = [
+    { "日常学习" = "gpa/daily-study.md" },
+    { "课外学习" = "gpa/extracurricular-study.md" },
+    { "期末备考" = "gpa/final-exam-preparation.md" },
   ] },
-  { "课外学习" = [
-    { "英语" = "learning/english.md" },
-    { "如何找课程" = "learning/finding-courses.md" },
+  { "保研" = [
+    { "三年规划" = "postgraduate/three-year-plan.md" },
+    { "套磁" = [
+      { "简历" = "postgraduate/recommendation/resume.md" },
+      { "邮件" = "postgraduate/recommendation/email.md" },
+      { "和老师交流" = "postgraduate/recommendation/communicating.md" },
+    ] },
+    { "笔面经验" = [
+      { "笔试准备" = "postgraduate/exams-and-interviews/written-exam.md" },
+      { "面试准备" = "postgraduate/exams-and-interviews/interview.md" },
+      { "实战案例" = "postgraduate/exams-and-interviews/cases.md" },
+    ] },
+    { "其他" = "postgraduate/other.md" },
   ] },
-  { "保研笔试与面试" = [
-    { "信息来源" = "admission/information.md" },
-    { "笔试" = "admission/written-test.md" },
-    { "面试" = "admission/interview.md" },
-    { "学校案例" = "admission/cases.md" },
+  { "WHUT校园生活指南" = [
+    { "重要地点" = [
+      { "校内地点" = "campus-life/locations/on-campus.md" },
+      { "校外地点" = "campus-life/locations/off-campus.md" },
+    ] },
+    { "社交" = [
+      { "社团" = "campus-life/social/clubs.md" },
+      { "活动" = "campus-life/social/activities.md" },
+    ] },
+    { "师生关系" = "campus-life/teacher-student-relations.md" },
+    { "WHUT的网站" = "campus-life/websites.md" },
+    { "入党" = "campus-life/party-membership.md" },
   ] },
 ]
 
