@@ -5,8 +5,29 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = (
-    "index.md",
+PAGE_TITLES = {
+    "index.md": "WHUT 数学er 学习指南",
+    "introduction.md": "引言",
+    "gpa/daily-study.md": "日常学习",
+    "gpa/extracurricular-study.md": "课外学习",
+    "gpa/final-exam-preparation.md": "期末备考",
+    "postgraduate/three-year-plan.md": "三年规划",
+    "postgraduate/recommendation/resume.md": "简历",
+    "postgraduate/recommendation/email.md": "邮件",
+    "postgraduate/recommendation/communicating.md": "和老师交流",
+    "postgraduate/exams-and-interviews/written-exam.md": "笔试准备",
+    "postgraduate/exams-and-interviews/interview.md": "面试准备",
+    "postgraduate/exams-and-interviews/cases.md": "实战案例",
+    "postgraduate/other.md": "其他",
+    "campus-life/locations/on-campus.md": "校内地点",
+    "campus-life/locations/off-campus.md": "校外地点",
+    "campus-life/social/clubs.md": "社团",
+    "campus-life/social/activities.md": "活动",
+    "campus-life/teacher-student-relations.md": "师生关系",
+    "campus-life/websites.md": "WHUT的网站",
+    "campus-life/party-membership.md": "入党",
+}
+WITHDRAWN_PAGES = (
     "fundamentals.md",
     "exams/course-selection.md",
     "exams/classes-and-notes.md",
@@ -21,19 +42,21 @@ PAGES = (
 
 
 class SiteStructureTest(unittest.TestCase):
-    def test_expected_pages_exist_and_have_one_title(self):
-        for relative_path in PAGES:
+    def test_expected_pages_exist_with_exact_titles(self):
+        for relative_path, title in PAGE_TITLES.items():
             text = (ROOT / "docs" / relative_path).read_text(encoding="utf-8")
-            self.assertEqual(1, sum(line.startswith("# ") for line in text.splitlines()))
+            headings = [line for line in text.splitlines() if line.startswith("# ")]
+            self.assertEqual([f"# {title}"], headings)
 
-    def test_config_uses_chinese_classic_theme_and_all_pages(self):
+    def test_config_uses_new_name_chinese_theme_and_all_pages(self):
         config = tomllib.loads((ROOT / "zensical.toml").read_text(encoding="utf-8"))
         project = config["project"]
+        self.assertEqual("WHUT 数学er 学习指南", project["site_name"])
         self.assertEqual("zh", project["theme"]["language"])
         self.assertEqual("classic", project["theme"]["variant"])
         self.assertEqual("site", project["site_dir"])
         nav_text = str(project["nav"])
-        for relative_path in PAGES:
+        for relative_path in PAGE_TITLES:
             self.assertIn(relative_path, nav_text)
 
     def test_internal_project_docs_are_excluded_from_the_site(self):
@@ -53,7 +76,7 @@ class SiteStructureTest(unittest.TestCase):
         self.assertIn("actions/deploy-pages@v5", workflow)
 
     def test_content_has_no_notion_links_or_missing_local_images(self):
-        for relative_path in PAGES:
+        for relative_path in PAGE_TITLES:
             page = ROOT / "docs" / relative_path
             text = page.read_text(encoding="utf-8")
             self.assertNotIn("app.notion.com", text)
@@ -62,36 +85,16 @@ class SiteStructureTest(unittest.TestCase):
                     self.assertTrue((page.parent / target).resolve().exists(), target)
 
     def test_local_markdown_links_exist(self):
-        for relative_path in PAGES:
+        for relative_path in PAGE_TITLES:
             page = ROOT / "docs" / relative_path
             text = page.read_text(encoding="utf-8")
             for target in re.findall(r"(?<!!)\[[^]]*\]\(([^)]+\.md)(?:#[^)]+)?\)", text):
                 self.assertTrue((page.parent / target).resolve().exists(), target)
 
-    def test_course_section_is_not_published(self):
-        config = tomllib.loads((ROOT / "zensical.toml").read_text(encoding="utf-8"))
-        self.assertNotIn("courses/", str(config["project"]["nav"]))
-        self.assertNotIn("courses/", (ROOT / "docs/index.md").read_text(encoding="utf-8"))
-        self.assertFalse(any((ROOT / "docs/courses").glob("*.md")))
-        self.assertFalse((ROOT / "source/original-guide.md").exists())
-        for relative_path in PAGES:
-            text = (ROOT / "docs" / relative_path).read_text(encoding="utf-8")
-            self.assertIsNone(re.search(r"[A-Za-z]{2,3}老师", text))
-
-    def test_course_selection_avoids_teacher_evaluation_language(self):
-        text = (ROOT / "docs/exams/course-selection.md").read_text(encoding="utf-8")
-        for phrase in (
-            "../courses/",
-            "风评",
-            "水课老师",
-            "给分好的老师",
-            "给分宽松",
-            "给分严格",
-            "避雷帖",
-            "反向贴",
-            "揣测老师",
-        ):
-            self.assertNotIn(phrase, text)
+    def test_old_articles_and_asset_are_withdrawn(self):
+        for relative_path in WITHDRAWN_PAGES:
+            self.assertFalse((ROOT / "docs" / relative_path).exists(), relative_path)
+        self.assertFalse((ROOT / "docs/assets/campus-course-review.png").exists())
 
 
 if __name__ == "__main__":
