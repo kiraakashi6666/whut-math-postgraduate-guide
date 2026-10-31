@@ -16,12 +16,9 @@ nav = [
     { "期末备考" = "gpa/final-exam-preparation.md" },
   ] },
   { "保研" = [
-    { "三年规划" = "postgraduate/three-year-plan.md" },
-    { "套磁" = [
-      { "简历" = "postgraduate/recommendation/resume.md" },
-      { "邮件" = "postgraduate/recommendation/email.md" },
-      { "和老师交流" = "postgraduate/recommendation/communicating.md" },
-    ] },
+    { "保研须知" = "postgraduate/must-known.md" },
+    { "简历和PPT" = "postgraduate/recommendation/resume.md" },
+    { "套磁" = "postgraduate/recommendation/email.md" },
     { "笔面经验" = [
       { "笔试准备" = "postgraduate/exams-and-interviews/written-exam.md" },
       { "面试准备" = "postgraduate/exams-and-interviews/interview.md" },

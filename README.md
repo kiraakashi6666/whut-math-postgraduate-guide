@@ -85,7 +85,7 @@ zensical build
 - `docs/index.md`：首页。
 - `docs/introduction.md`：引言。
 - `docs/gpa/`：日常学习、课外学习与期末备考。
-- `docs/postgraduate/`：三年规划、套磁、笔面经验与其他事项。
+- `docs/postgraduate/`：保研须知、简历和 PPT、套磁、笔面经验与其他事项。
 - `docs/campus-life/`：地点、社交、师生关系、WHUT 网站与入党。
 - `zensical.toml`：网站名称、语言、外观和左侧导航。
 
